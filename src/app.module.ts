@@ -11,6 +11,7 @@ import { ApplicationModule } from './application/application.module';
 import { ApplicationService } from './application/application.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './auth/jwt.strategy';
 
 @Module({
   imports: [
@@ -30,6 +31,12 @@ import { JwtModule } from '@nestjs/jwt';
     ApplicationModule,
   ],
   controllers: [AppController],
-  providers: [AppService, UserService, PrismaService, ApplicationService],
+  providers: [
+    AppService,
+    UserService,
+    JwtStrategy,
+    PrismaService,
+    ApplicationService,
+  ],
 })
 export class AppModule {}
