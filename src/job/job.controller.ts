@@ -69,7 +69,7 @@ export class JobController {
     return {
       result,
       success: true,
-      message: 'Company deleted successfully',
+      message: 'Job deleted successfully',
     };
   }
 }
