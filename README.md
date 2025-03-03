@@ -1,99 +1,181 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# JobNest - Job Portal Backend Application
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to **JobNest**, a robust and scalable backend application for a job portal built using **NestJS**, **Prisma**, and **MongoDB**. This application provides RESTful APIs to manage users, jobs, companies, applications, and favourites, making it a perfect backend for any job portal platform.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
+- **User Management:** Register and manage users with roles (Student, Recruiter).
+- **Job Posting:** Recruiters can post jobs with details like title, description, salary, location, and more.
+- **Company Profiles:** Recruiters can create and manage company profiles.
+- **Job Applications:** Students can apply to jobs and track their application status (Pending, Accepted, Rejected).
+- **Favorites:** Users can save their favorite jobs for easy access later.
+- **Authentication:** Secure user authentication and authorization.
+- **RESTful APIs:** Clean and well-structured APIs for seamless integration with frontend applications.
 
-## Description
+## Technologies Used
+- **Node.js:** Runtime environment for building the backend.
+- **NestJS:** A progressive Node.js framework for building efficient and scalable server-side applications.
+- **Prisma:** Next-generation ORM for database management.
+- **MongoDB**: NoSQL database for storing application data.
+- **RESTful APIs:** Standardized APIs for communication between client and server.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Getting Started
 
-## Project setup
+### Prerequisites
 
-```bash
-$ npm install
+Before you begin, ensure you have the following installed:
+
+- Node.js (v16 or higher)
+- npm or yarn
+- MongoDB (local or cloud instance)
+- Prisma CLI (`npm install -g prisma`)
+
+### Installation
+1. **Clone the Repository:**
+```
+  git clone https://github.com/your-username/JobNest.git
+  cd JobNest
 ```
 
-## Compile and run the project
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+2. **Install Dependencies:**
+```
+  npm install
 ```
 
-## Run tests
+3. **Set Up Environment Variables:**
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Create a `.env` file in the root directory and add the following:
+```
+  PORT=5000
+  DATABASE_URL="mongodb://127.0.0.1:27017/job_portal"
+  SECRET_KEY=
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+4. **Generate Prisma Client:**
+```
+  npx prisma generate
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+5. **Run Database Migrations:**
+```
+  npx prisma migrate dev --name init
+```
 
-## Resources
+6. **Start the Application:**
+```
+  npm run start / nest start
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+7. **Access the Application:**
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+The server will be running at `http://localhost:3000`.
 
-## Support
+## API Endpoints
+### Base URL
+  ```
+  http://localhost:5000
+  ```
+### Authentication
+  ```
+  Authorization: Bearer <token>
+  ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+#### Register a User -
+- Endpoint: `POST /user/register`
+- Request Body:
+  ```
+  {
+      "fullname": "ABC",
+      "email": "abc@gmail.com",
+      "phoneNumber": "546585497515",
+      "password": "123456",
+      "profileBio": "abc",
+      "profileSkills": ["nestjs", "nodejs"],
+      "profileResume": "https://resume.pdf",
+      "profileResumeOriginalName": "Myname",
+      "profilePhoto": "https://abc.com"
+  }
+  ```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Login User -
+- Endpoint: `POST /user/login`
+- Request Body:
+  ```
+  {
+      "email": "abc@gmail.com",
+      "password": "123456",
+      "role": "student"
+  }
+  ```
 
-## License
+#### Create a Company -
+- Endpoint: `POST /company/register`
+- Request Body:
+  ```
+  {
+      "name": "ABC",
+      "description": "ABC",
+      "website": "http://abc.com",
+      "location": "Pune",
+      "logo": "http://abc.com"
+  }
+  ```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+#### Create a Job -
+- Endpoint: `POST /job`
+- Request Body:
+  ```
+  {
+      "title": "ABC",
+      "description": "ABC",
+      "requirements": ["ABC","ABC"],
+      "salary": 60000,
+      "location": "Pune",
+      "jobType": "ABC",
+      "experienceLevel": "2",
+      "position": 2,
+      "companyId": "1256131231uhbjn"
+  }
+  ```
+
+### API Responses - 
+#### **Users Endpoint -**
+
+| HTTP Verbs | Endpoints           | Action                            |
+| ---------- | ------------------- | --------------------------------- |
+| POST       | /user/register      | To register a new user            |
+| POST       | /user/login         | To login an existing user account |
+| PUT        | /user/updateProfile | Update a existing user            |
+| GET        | /user/logout        | User Logout                       |
+
+#### **Company Endpoint -**
+| HTTP Verbs | Endpoints         | Action                  |
+| ---------- | ----------------- | ----------------------- |
+| POST       | /company/register | To create company       |
+| PUT        | /company/:id      | To update company by id |
+| GET        | /company          | Get list of companies   |
+| GET        | /company/:id      | To get specific company |
+| DELETE     | /company/:id      | Delete company by id    |
+
+#### **Job Endpoint -**
+| HTTP Verbs | Endpoints         | Action                   |
+| ---------- | ----------------- | ------------------------ |
+| POST       | /job              | To create a new job      |
+| GET        | /job?keyword=full | Get all jobs             |
+| GET        | /job/:id          | Get specific job details |
+| POST       | /job/:userId      | Jobs of particular user  |
+| DELETE     | /job/:id          | Delete specific job      |
+
+#### **Application Endpoint -**
+| HTTP Verbs | Endpoints        | Action                       |
+| ---------- | ---------------- | ---------------------------- |
+| POST       | /application/:id | Apply for job                |
+| PUT        | /application/:id | Update application           |
+| GET        | /application     | Get applied jobs             |
+| GET        | /application/:id | To get applicant information |
+
+#### **Favourite Endpoint -**
+| HTTP Verbs | Endpoints     | Action                 |
+| ---------- | ------------- | ---------------------- |
+| POST       | /favorite/:id | To save job            |
+| POST       | /favorites    | Get list of saved favourites |
