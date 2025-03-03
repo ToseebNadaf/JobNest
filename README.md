@@ -67,7 +67,7 @@ Create a `.env` file in the root directory and add the following:
 
 7. **Access the Application:**
 
-The server will be running at `http://localhost:3000`.
+The server will be running at `http://localhost:5000`.
 
 ## API Endpoints
 ### Base URL
